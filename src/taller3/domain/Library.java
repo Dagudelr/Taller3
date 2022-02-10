@@ -1,4 +1,4 @@
-
+package taller3.domain;
 /**
  *
  * @author HEINER PALACIOS ASPRILLA
