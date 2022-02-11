@@ -1,3 +1,4 @@
+package taller3.domain;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,41 +11,50 @@ import java.util.stream.Stream;
 /**
 * This class builds the Library class that will store all the songs..
 *
-* @versión 1.1.1 2022-02-10
+* @versión 1.1.1 2022-02-09
 *
 * @author Heiner palacios - heinerpalacios@gmail.com
+* @author Daniel, Agudelo - danielagudelo103@gmail.com
 *
-* @from 1.0.0
+* @since 1.0.0
  */
-
-public class Library extends Filters implements ISort{
+public class Library extends Filters implements ISort {
 
     private List<Song> songs;
 
+    /**
+     * It refers to the constructor that when instantiating the class creates the list of songs.
+     *
+     * @throws ParseException
+     *
+     * @author Daniel, Agudelo - danielagudelo103@gmail.com
+     *
+     * @since 1.0.0
+     */
     public Library() throws ParseException {
         this.songs = new ArrayList<>();
         this.addSong(new Song( "Welcome to Ibiza", "2000/5/31", new DurationSong(5, 04),
-                    MusicalGenre.ELECTRONIC, "https://i1.sndcdn.com/artworks-000072475663-j82zly-t500x500.jpg",
+                    Filters.MusicalGenre.ELECTRONIC, "https://i1.sndcdn.com/artworks-000072475663-j82zly-t500x500.jpg",
                     "The author of this electronica song is Dj Tiesto."));
         this.addSong(new Song( "The final Countdown", "1986/8/20", new DurationSong(4, 56),
-                    MusicalGenre.ROCK, "https://i0.wp.com/masdecibelios.es/wp-content/uploads/2018/10/countdown-europe.jpg?fit=620%2C350&ssl=1",
+                    Filters.MusicalGenre.ROCK, "https://i0.wp.com/masdecibelios.es/wp-content/uploads/2018/10/countdown-europe.jpg?fit=620%2C350&ssl=1",
                     "Song performed by the rock band Europe."));
         this.addSong(new Song( "Dákiti", "2020/10/30", new DurationSong(3, 26),
-                    MusicalGenre.REGGAETON, "https://geniuslyrics.net/i/bands/350/bad-bunny-el-ultimo-tour-del-mundo.jpg",
+                    Filters.MusicalGenre.REGGAETON, "https://geniuslyrics.net/i/bands/350/bad-bunny-el-ultimo-tour-del-mundo.jpg",
                     "Bad Bunny's song"));
         this.addSong(new Song( "Gotas de Lluvia", "1995/3/31", new DurationSong(5, 36),
-                    MusicalGenre.REGGAETON, "https://i1.sndcdn.com/artworks-000667296796-zan9fu-t500x500.jpg",
+                    Filters.MusicalGenre.REGGAETON, "https://i1.sndcdn.com/artworks-000667296796-zan9fu-t500x500.jpg",
                     "Musical of the Salsa genre from Colombia."));
     }
 
      /**
      * Gets the filter of songs by year.
      *
-     * value of the song and year @return
+     * @return the list of songs filtered by year.
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     @Override
     public Stream<Song> filterSongsByYear(String date) throws ParseException {
@@ -56,11 +66,11 @@ public class Library extends Filters implements ISort{
     /**
      * Gets the filter of the songs by genre.
      *
-     * value of the song and the genre @return
+     * @return the list of songs filtered by genre.
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     @Override
     public Stream<Song> filterSongsByGenre(MusicalGenre genre) {
@@ -70,11 +80,11 @@ public class Library extends Filters implements ISort{
     /**
      * Compares songs according to length and sorts in descending order.
      *
-     * Song duration descending @return
+     * @return the list of songs sorted by descending duration.
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     @Override
     public void sortSongsByDurationDescending() {
@@ -84,11 +94,11 @@ public class Library extends Filters implements ISort{
     /**
      * Compares songs by duration and sorts in ascending order.
      *
-     * Song duration ascending @return
+     * @return the list of songs sorted by ascending duration
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     @Override
     public void sortSongsByDurationAscendant() {
@@ -98,11 +108,11 @@ public class Library extends Filters implements ISort{
     /**
      * Compare songs by date and sort in descending order
      *
-     * date of the song descending @return
+     * @return the list of songs sorted by descending date
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     @Override
     public void sortSongsByDateDescending() {
@@ -112,11 +122,11 @@ public class Library extends Filters implements ISort{
     /**
      * Compares songs by date and sorts in descending order.
      *
-     * date of the song ascending @return
+     *  @return the list of songs sorted by ascending date
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     @Override
     public void sortSongsByDateAscendant() {
@@ -129,45 +139,46 @@ public class Library extends Filters implements ISort{
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     public void addSong(Song song) {
         this.songs.add(song);
     }
 
     /**
-     * create a specific list of songs.
+     * method that obtains the size of the list.
      *
+     * @return the size of the song list
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     public Integer sizeListSongs(){
         return this.songs.size();
     }
 
     /**
-     * Displays the songs in the library.
+     * Displays a song from the library.
      *
-     * songs from the library @return
+     * @return song from the library
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     * @since 1.0.0
      */
     public Song getSong(Integer i){
         return this.songs.get(i);
     }
 
     /**
-     * Displays the songs in the selected list.
+     * Displays the songs in the library.
      *
-     * songs from the list @return
+     * @return songs from the list
      *
      * @author Heiner palacios - heinerpalacios@gmail.com
      *
-     * @from 1.0.0
+     *@since 1.0.0
      */
     public List<Song> getSongs(){
         return this.songs;

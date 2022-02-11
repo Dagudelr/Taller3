@@ -149,8 +149,8 @@ public class Song {
      *
      * @since 1.1.1
      */
-    public void getDuration(){
-        this.duration.toMili();
+    public long getDuration(){
+        return this.duration.toMilliSeconds();
     }
 
     /**

@@ -66,7 +66,7 @@ public class DurationSong {
      *
      * @since 1.1.1
      */
-    public Integer toMili(){
+    public Integer toMilliSeconds(){
         return (this.minutes * 60000) + (this.seconds*1000);
     }
 }
