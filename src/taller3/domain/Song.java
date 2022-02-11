@@ -1,15 +1,13 @@
 package taller3.domain;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
- * This class constructs a song that is used from the Library class to create a list of songs.
+ * This class constructs a Song that is used from the Library class to create a list of songs.
  * private List<Song> songs
  *
  * @version 1.1.1 2022-02-09
@@ -18,45 +16,42 @@ import java.util.Objects;
  *
  * @since 1.0.0
  */
-public class song {
-    private final Integer id;
+public class Song {
+    private final UUID id;
     private String title;
     private Date date;
-    private Map<String, Integer> duration = new HashMap<String, Integer>();
-    private MusicalGenre genre;
+    private DurationSong duration;
+    private Filters.MusicalGenre genre;
     private String coverPage;
     private String description;
 
     /**
      *It is the constructor of the class that initializes the values of the attributes.
-     * @param id of the song when it is instantiated.
-     * @param title  of the song when it is instantiated.
-     * @param date of the song when it is instantiated.
-     * @param duration of the song when it is instantiated.
-     * @param genre of the song when it is instantiated.
-     * @param coverPage of the song when it is instantiated.
-     * @param description of the song when it is instantiated.
+     * @param title  of the Song when it is instantiated.
+     * @param date of the Song when it is instantiated.
+     * @param duration of the Song when it is instantiated.
+     * @param genre of the Song when it is instantiated.
+     * @param coverPage of the Song when it is instantiated.
+     * @param description of the Song when it is instantiated.
      * @throws ParseException
      *
      * @author Daniel, Agudelo - danielagudelo103@gmail.com
      *
      * @since 1.0.0
      */
-    public song(Integer id, String title, String date, Map<String, Integer> duration, MusicalGenre genre, String coverPage, String description) throws ParseException {
+    public Song(String title, String date, DurationSong duration, Filters.MusicalGenre genre, String coverPage, String description) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-        this.id = Objects.requireNonNull(id);
+        this.id = UUID.randomUUID();
         this.title = Objects.requireNonNull(title);
         this.date = Objects.requireNonNull(format.parse(date));
+        this.duration = Objects.requireNonNull(duration);
         this.genre = Objects.requireNonNull(genre);
         this.coverPage = Objects.requireNonNull(coverPage);
         this.description = Objects.requireNonNull(description);
-        if(id < 0){
-            throw new IllegalArgumentException("Identifiers cannot be negative.");
-        }
     }
 
     /**
-     * Gets the id value of the song class.
+     * Gets the id value of the Song class.
      * Song song1 = new Song(attributes of the builder)
      * song1.getId()
      *
@@ -66,12 +61,12 @@ public class song {
      *
      * @since 1.0.0
      */
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
     /**
-     * Gets the title value of the song class.
+     * Gets the title value of the Song class.
      * Song song1 = new Song(attributes of the builder)
      * song1.getTitle()
      *
@@ -86,7 +81,7 @@ public class song {
     }
 
     /**
-     * Gets the date value of the song class.
+     * Gets the date value of the Song class.
      * Song song1 = new Song(attributes of the builder)
      * song1.getDate()
      *
@@ -101,7 +96,7 @@ public class song {
     }
 
     /**
-     * Gets the genre value of the song class.
+     * Gets the genre value of the Song class.
      * Song song1 = new Song(attributes of the builder)
      * song1.getGenre()
      *
@@ -111,12 +106,12 @@ public class song {
      *
      * @since 1.0.0
      */
-    public MusicalGenre getGenre() {
+    public Filters.MusicalGenre getGenre() {
         return genre;
     }
 
     /**
-     * Gets the coverPage value of the song class.
+     * Gets the coverPage value of the Song class.
      * Song song1 = new Song(attributes of the builder)
      * song1.getCoverPage()
      *
@@ -131,7 +126,7 @@ public class song {
     }
 
     /**
-     * Gets the description value of the song class.
+     * Gets the description value of the Song class.
      * Song song1 = new Song(attributes of the builder)
      * song1.getDescription()
      *
@@ -146,7 +141,7 @@ public class song {
     }
 
     /**
-     * The duration of the song is displayed in a dictionary when the method is called.
+     * The duration of the song in milliseconds.
      * Song song1 = new Song(attributes of the builder)
      * song1.getDuration()
      *
@@ -155,7 +150,32 @@ public class song {
      * @since 1.1.1
      */
     public void getDuration(){
-        this.duration.forEach((k, v) -> System.out.println("key = " + k + " Value = " + v));
+        this.duration.toMili();
+    }
+
+    /**
+     *Method that allows to return the song information.
+     * Song song1 = new Song(attributes of the builder)
+     * song1.toString()
+     *
+     * @return Song information
+     *
+     * @author Daniel, Agudelo - danielagudelo103@gmail.com
+     *
+     * @since 1.1.1
+     */
+    @Override
+    public String toString() {
+        return "Song{" +
+                "\nid=" + this.id +
+                ", \ntitle='" + this.title + '\'' +
+                ", \ndate=" + this.date +
+                ", \nduration{" + "\nMinutes: "+ this.duration.getMinutes() +
+                "\nSeconds: " + this.duration.getSeconds() + "\n}" +
+                ", \ngenre=" + this.genre +
+                ", \ncoverPage='" + this.coverPage + '\'' +
+                ", \ndescription='" + this.description + '\'' +
+                '}';
     }
 
 }
