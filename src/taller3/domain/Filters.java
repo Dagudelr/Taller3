@@ -35,7 +35,7 @@ public abstract class Filters {
      *Filter the song by genre.
      *this.songs.stream().filter(songs -> songs.getGenre() == genre);
      *
-     * @param genre
+     * @param genre of type enum MusicalGenre
      * @return A list of Songs filtered by year
      *
      * @author Daniel, Agudelo - danielagudelo103@gmail.com
@@ -53,6 +53,6 @@ public abstract class Filters {
      * @since 1.1.1
      */
     public enum MusicalGenre {
-        ROCK, REGGAETON, POP, TROPICAL, ELECTRONIC, RAP, CLASIC, SALSA, TRAP, REGGAE;
+        ROCK, REGGAETON, POP, TROPICAL, ELECTRONIC, RAP, CLASSIC, SALSA, TRAP, REGGAE;
     }
 }

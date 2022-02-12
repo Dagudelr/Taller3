@@ -18,12 +18,12 @@ import java.util.UUID;
  */
 public class Song {
     private final UUID id;
-    private String title;
-    private Date date;
-    private DurationSong duration;
-    private Filters.MusicalGenre genre;
-    private String coverPage;
-    private String description;
+    private final String title;
+    private final Date date;
+    private final DurationSong duration;
+    private final Filters.MusicalGenre genre;
+    private final String coverPage;
+    private final String description;
 
     /**
      *It is the constructor of the class that initializes the values of the attributes.
@@ -39,7 +39,8 @@ public class Song {
      *
      * @since 1.0.0
      */
-    public Song(String title, String date, DurationSong duration, Filters.MusicalGenre genre, String coverPage, String description) throws ParseException {
+    public Song(String title, String date, DurationSong duration, Filters.MusicalGenre genre,
+            String coverPage, String description) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
         this.id = UUID.randomUUID();
         this.title = Objects.requireNonNull(title);
@@ -166,7 +167,7 @@ public class Song {
      */
     @Override
     public String toString() {
-        return "Song{" +
+        return "\n\nSong{" +
                 "\nid=" + this.id +
                 ", \ntitle='" + this.title + '\'' +
                 ", \ndate=" + this.date +
@@ -174,7 +175,7 @@ public class Song {
                 "\nSeconds: " + this.duration.getSeconds() + "\n}" +
                 ", \ngenre=" + this.genre +
                 ", \ncoverPage='" + this.coverPage + '\'' +
-                ", \ndescription='" + this.description + '\'' +
+                ", \ndescription='" + this.description + '\n' +
                 '}';
     }
 
