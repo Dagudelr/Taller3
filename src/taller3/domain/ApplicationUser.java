@@ -169,7 +169,7 @@ public class ApplicationUser{
                             } else if(optionMenuLibrary == 3) {
                                 spotify.sortSongsByDurationAscendant();
                                 out.println(spotify.getSongs());
-                                out.println("Do you want to sort them in descending order? \n1: Yes. \nCAny other number: No");
+                                out.println("Do you want to sort them in descending order? \n1: Yes. \nAny other number: No");
                                 int optionSortReverse = answersNumber.nextInt();
                                 if (optionSortReverse == 1) {
                                     spotify.sortSongsByDurationDescending();
@@ -186,7 +186,7 @@ public class ApplicationUser{
                             } else if(optionMenuLibrary == 4) {
                                 spotify.sortSongsByDurationDescending();
                                 out.println(spotify.getSongs());
-                                out.println("Do you want to sort them in ascending order? \n1: Yes. \nCAny other number: No");
+                                out.println("Do you want to sort them in ascending order? \n1: Yes. \nAny other number: No");
                                 int optionSortReverse = answersNumber.nextInt();
                                 if (optionSortReverse == 1) {
                                     spotify.sortSongsByDurationAscendant();
@@ -203,7 +203,7 @@ public class ApplicationUser{
                             } else if(optionMenuLibrary == 5) {
                                 spotify.sortSongsByDateAscendant();
                                 out.println(spotify.getSongs());
-                                out.println("Do you want to sort them in descending order? \n1: Yes. \nCAny other number: No");
+                                out.println("Do you want to sort them in descending order? \n1: Yes. \nAny other number: No");
                                 int optionSortReverse = answersNumber.nextInt();
                                 if(optionSortReverse == 1){
                                     spotify.sortSongsByDateDescending();
@@ -220,7 +220,7 @@ public class ApplicationUser{
                             } else if (optionMenuLibrary == 6) {
                                 spotify.sortSongsByDateDescending();
                                 out.println(spotify.getSongs());
-                                out.println("Do you want to sort them in ascending order? \n1: Yes. \nCAny other number: No");
+                                out.println("Do you want to sort them in ascending order? \n1: Yes. \nAny other number: No");
                                 int optionSortReverse = answersNumber.nextInt();
                                 if (optionSortReverse == 1) {
                                     spotify.sortSongsByDateAscendant();
