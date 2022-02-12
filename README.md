@@ -10,3 +10,6 @@ Realice una clonación del código, desde la clase ApplicationUser.java realice 
 
 ¿Qué se realizo?
 Se realizo lo solicitado en el taller.
+
+Nota:
+Los atributos se declararon privados, ya que en el documento de buenas prácticas indicaba que era lo más recomendado, por ende y siguiendo la misma lógica en el mismo documento indicaba que si los atributos eran privados, no se debían documentar, por eso los atributos no cuenta con una documentación.
